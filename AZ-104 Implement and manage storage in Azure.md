@@ -237,4 +237,51 @@ The following example shows how a domain in use is mapped to an Azure storage ac
 - You can configure the service to allow access to one or more public IP ranges.
 - Subnets and virtual networks must exist in the same Azure region or region pair as your storage account.
 
+### 2. Configure Azure Blob Storage
 
+### Implement Azure Blob Storage
+
+#### Things to know about Azure Blob Storage
+Blob Storage uses three resources to store and manage your data:
+- An Azure storage account
+- Containers in an Azure storage account
+- Blobs in a container
+
+To implement Blob Storage, you configure several settings:
+- Blob container options
+- Blob types and upload options
+- Blob Storage access tiers
+- Blob lifecycle rules
+- Blob object replication options
+
+#### Things to consider when implementing Azure Blob Storage
+- **Consider browser uploads** -> Use Blob Storage to serve images or documents directly to a browser.
+- **Consider distributed access** -> Blob Storage can store files for distributed access, such as during an installation process.
+- **Consider streaming data** -> Stream video and audio by using Blob Storage.
+- **Consider archiving and recovery** -> Blob Storage is a great solution for storing data for backup and restore, disaster recovery, and archiving.
+- **Consider application access** -> You can store data in Blob Storage for analysis by an on-premises or Azure-hosted service.
+
+### Create blob containers
+
+#### Things to know about containers and blobs
+- All blobs must be in a container.
+- A container can store an unlimited number of blobs.
+- An Azure storage account can contain an unlimited number of containers.
+- You can create the container in the Azure portal.
+- You upload blobs into a container.
+
+#### Configure a container
+- In the Azure portal, you configure two settings to create a container for an Azure storage account.
+- **Name:** Enter a name for your container. The name must be unique within the Azure storage account.
+- **Public access level:** The access level specifies whether the container and its blobs can be accessed publicly. By default, container data is private and visible only to the account owner. There are three access level choices:
+  1. **Private:** (Default) Prohibit anonymous access to the container and blobs.
+  2. **Blob:** Allow anonymous public read access for the blobs only.
+  3. **Container:** Allow anonymous public read and list access to the entire container, including the blobs
+
+#### Assign blob access tiers
+- **Hot Tiers** -> The Hot tier is optimized for frequent reads and writes of objects in the Azure storage account.By default, new storage accounts are created in the Hot tier.
+- **Cool Tiers** -> The Cool tier is optimized for storing large amounts of data that's infrequently accessed.This tier is intended for data that remains in the Cool tier for at least 30 days.A usage case for the Cool tier is short-term backup and disaster recovery datasets and older media content.
+- **Archive Tiers** -> The Archive tier is an offline tier that's optimized for data that can tolerate several hours of retrieval latency. Data must remain in the Archive tier for at least 180 days or be subject to an early deletion charge. Data for the Archive tier includes secondary backups, original raw data, and legally required compliance information.
+- **Premium Blob Storage** -> Premium Blob Storage is best suited for I/O intensive workloads that require low and consistent storage latency. Premium Blob Storage uses solid-state drives (SSDs) for fast and consistent response times. This storage is best for workloads that perform many small transactions.
+
+#### Compare access tiers
