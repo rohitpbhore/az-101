@@ -285,3 +285,9 @@ To implement Blob Storage, you configure several settings:
 - **Premium Blob Storage** -> Premium Blob Storage is best suited for I/O intensive workloads that require low and consistent storage latency. Premium Blob Storage uses solid-state drives (SSDs) for fast and consistent response times. This storage is best for workloads that perform many small transactions.
 
 #### Compare access tiers
+![Compare access tiers](cert2pic.PNG "Compare access tiers")
+
+#### Configure the blob access tier
+In the Azure portal, you can select the blob access tier for your Azure storage account. 
+
+### Add blob lifecycle management rules
